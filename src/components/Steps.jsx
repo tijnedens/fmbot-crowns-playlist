@@ -8,7 +8,8 @@ import { CheckCircle, ExpandMore } from "@mui/icons-material";
 import SpotifyService from "../service/SpotifyService";
 import LastfmService from "../service/LastfmService";
 import LastfmLogin from "./LastfmLogin";
-import CreatePlaylist from "./CreatePlaylist";
+import CreateMinMaxPlaylist from "./CreateMinMaxPlaylist";
+import CreateMaxDistancePlaylist from "./CreateMaxDistancePlaylist";
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={1} square {...props} />
@@ -144,10 +145,19 @@ export default function Steps() {
 
       <Accordion disabled={!(completed[0] && completed[1])} expanded={completed[0] && completed[1]}>
         <AccordionSummary>
-          <Typography>Create playlist</Typography>
+          <Typography>Create min-max playlist</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <CreatePlaylist />
+          <CreateMinMaxPlaylist />
+        </AccordionDetails>
+      </Accordion>
+
+      <Accordion disabled={!(completed[0] && completed[1])} expanded={completed[0] && completed[1]}>
+        <AccordionSummary>
+          <Typography>Create scrobble difference playlist</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <CreateMaxDistancePlaylist />
         </AccordionDetails>
       </Accordion>
     </Box>
